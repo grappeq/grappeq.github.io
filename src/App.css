@@ -1,24 +1,46 @@
-.App {
-  text-align: center;
+.central-text {
+    text-align: center;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
+.name, .position {
+    /*font-variant: small-caps;*/
+    text-transform: uppercase;
 }
 
-.App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
-  color: white;
+.name {
+    letter-spacing: 0.2rem;
 }
 
-.App-intro {
-  font-size: large;
+.position {
+    letter-spacing: 0.4rem;
 }
 
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+.photo {
+    border-radius: 50%;
+    width: 10rem;
+    height: auto;
+}
+
+.links li {
+    font-size: 4rem;
+}
+
+.email-icon {
+    cursor: pointer;
+    font-size: 2rem;
+    margin: 0 1rem;
+}
+
+.email-icon:hover {
+    color: #b5b5b5;
+}
+
+.email {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.email-text {
+    letter-spacing: 0.1rem;
 }
