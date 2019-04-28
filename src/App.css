@@ -3,7 +3,6 @@
 }
 
 .name, .position {
-    /*font-variant: small-caps;*/
     text-transform: uppercase;
 }
 
@@ -25,20 +24,24 @@
     font-size: 4rem;
 }
 
+.email {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 .email-icon {
     cursor: pointer;
     font-size: 2rem;
     margin: 0 1rem;
 }
 
-.email-icon:hover {
-    color: #b5b5b5;
+.email.expanded .email-icon {
+    cursor: default;
 }
 
-.email {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+.email-icon:hover {
+    color: #b5b5b5;
 }
 
 .email-text {

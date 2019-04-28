@@ -33,7 +33,7 @@ class App extends Component {
                             <h4 className="position subtitle is-4">
                                 Software Engineer
                             </h4>
-                            <h5 className="email subtitle is-5">
+                            <h5 className={`email subtitle is-5${this.state.emailAddressHidden ? "" : " expanded"}`}>
                                 <FontAwesomeIcon
                                     icon={['fas', 'envelope']}
                                     className="email-icon"
