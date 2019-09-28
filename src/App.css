@@ -47,3 +47,7 @@
 .email-text {
     letter-spacing: 0.1rem;
 }
+
+.hero.is-fullheight {
+    padding-bottom: 10vh;
+}
