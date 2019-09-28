@@ -1,5 +1,5 @@
 # Personal website
-This is my personal website hosted using GitHub Pages. It can be accessed via http://kacper.grabow.ski .
+Super simple static personal site. It can be accessed via http://kacper.grabow.ski .
 
 ## Local setup
 ```
