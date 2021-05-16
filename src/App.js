@@ -19,17 +19,19 @@ class App extends Component {
     constructor() {
         super();
 
+        const  { backgroundColor, foregroundColor } = this.generateNiceContrastingColors();
         this.state = {
-            emailAddressHidden: true
+            emailAddressHidden: true,
+            backgroundColor,
+            foregroundColor,
         };
 
-        this.setColors();
+        this.regenerateColors = this.regenerateColors.bind(this);
     }
 
-    setColors() {
-        const  { backgroundColor, foregroundColor } = this.generateNiceContrastingColors();
-        this.backgroundColor = backgroundColor;
-        this.foregroundColor = foregroundColor;
+    regenerateColors() {
+        const { backgroundColor, foregroundColor } = this.generateNiceContrastingColors();
+        this.setState({ backgroundColor, foregroundColor });
     }
 
     generateNiceContrastingColors() {
@@ -42,7 +44,7 @@ class App extends Component {
     }
 
     generateMatchingColors() {
-        const backgroundColor = chroma.random().saturate(2).luminance(0.5);
+        const backgroundColor = chroma.random().saturate(2).luminance(0.8);
         const [hue, saturation, lightness] = backgroundColor.hsl();
         const foregroundColor = chroma.hsl(hue+180%360, saturation, lightness);
 
@@ -51,19 +53,19 @@ class App extends Component {
 
     textStyle() {
         return {
-            color: this.foregroundColor
+            color: this.state.foregroundColor
         };
     }
 
     backgroundStyle() {
         return {
-            backgroundColor: this.backgroundColor
+            backgroundColor: this.state.backgroundColor
         };
     }
 
     photoStyle() {
         const [hueOfMyFace] = MY_FACE_REFERENCE_COLOR.hsv();
-        const [foregroundColorHue] = this.foregroundColor.hsv();
+        const [foregroundColorHue] = this.state.foregroundColor.hsv();
         const hueDiff = foregroundColorHue-hueOfMyFace;
 
         return {
@@ -77,7 +79,13 @@ class App extends Component {
                 <section className="hero is-fullheight is-light" style={this.backgroundStyle()}>
                     <div className="hero-body">
                         <div className="container central-text">
-                            <img src={photo} className="photo" style={this.photoStyle()} alt="Me"/>
+                            <img
+                                src={photo}
+                                className="photo"
+                                style={this.photoStyle()}
+                                alt="Me"
+                                onClick={this.regenerateColors}
+                            />
                             <h2 className="name title is-2" style={this.textStyle()}>
                                 Kacper Grabowski
                             </h2>
