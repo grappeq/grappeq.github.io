@@ -1,5 +1,41 @@
-.central-text {
+html, #root, body {
+    min-height: 100%;
+    height: 100%;
+    width: 100%;
+    margin: 0;
+}
+
+.app {
+    width: 100%;
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    font-family: BlinkMacSystemFont, -apple-system, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;;
+}
+
+.app-body {
+    display: flex;
+    flex-direction: column;
     text-align: center;
+    align-items: center;
+    justify-content: center;
+    padding: 3rem 1.5rem;
+    flex: 1 0 auto;
+}
+
+.app-footer {
+    width: 100%;
+    padding-bottom: 7vh;
+    flex: 0 0 auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.app-footer a {
+    font-size: 4rem;
+    padding: 0 3rem;
 }
 
 .name, .position {
@@ -7,11 +43,17 @@
 }
 
 .name {
+    font-size: 2.5rem;
+    font-weight: 600;
     letter-spacing: 0.2rem;
+    padding: 1rem 0;
 }
 
 .position {
+    font-size: 1.5rem;
+    font-weight: 400;
     letter-spacing: 0.4rem;
+    padding-bottom: 1.5rem;
 }
 
 .photo {
@@ -19,13 +61,11 @@
     width: 10rem;
     height: auto;
     cursor: pointer;
-}
-
-.links li {
-    font-size: 4rem;
+    user-select: none;
 }
 
 .email {
+    font-size: 1.25rem;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -47,8 +87,4 @@
 
 .email-text {
     letter-spacing: 0.1rem;
-}
-
-.hero.is-fullheight {
-    padding-bottom: 10vh;
 }
