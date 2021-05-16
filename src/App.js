@@ -13,6 +13,7 @@ library.add(faGithub, faLinkedin, faEnvelope, faCopy);
 const EMAIL_ADDRESS = atob('a2FjcGVyQGdyYWJvdy5za2k=');
 
 const MIN_CONTRAST_RATIO = 1.5;
+const MY_FACE_REFERENCE_COLOR = chroma('#EEC4CF');
 
 class App extends Component {
     constructor() {
@@ -48,14 +49,6 @@ class App extends Component {
         return { backgroundColor, foregroundColor };
     }
 
-    static lighterColor(color1, color2) {
-        return color1.luminance() > color2.luminance() ? color1 : color2;
-    }
-
-    static darkerColor(color1, color2) {
-        return color1.luminance() < color2.luminance() ? color1 : color2;
-    }
-
     textStyle() {
         return {
             color: this.foregroundColor
@@ -68,13 +61,23 @@ class App extends Component {
         };
     }
 
+    photoStyle() {
+        const [hueOfMyFace] = MY_FACE_REFERENCE_COLOR.hsv();
+        const [foregroundColorHue] = this.foregroundColor.hsv();
+        const hueDiff = foregroundColorHue-hueOfMyFace;
+
+        return {
+            filter: `hue-rotate(${hueDiff}deg) saturate(200%)`
+        }
+    }
+
     render() {
         return (
             <div className="App">
                 <section className="hero is-fullheight is-light" style={this.backgroundStyle()}>
                     <div className="hero-body">
                         <div className="container central-text">
-                            <img src={photo} className="photo" alt="Me"/>
+                            <img src={photo} className="photo" style={this.photoStyle()} alt="Me"/>
                             <h2 className="name title is-2" style={this.textStyle()}>
                                 Kacper Grabowski
                             </h2>
