@@ -1,5 +1,5 @@
 # Personal website
-Super simple static personal site. It can be accessed via http://kacper.grabow.ski .
+Super simple static personal site with some trippy effects. It can be accessed under [kacper.grabow.ski](https://kacper.grabow.ski).
 
 ## Local setup
 ```
@@ -9,7 +9,7 @@ npm install
 ```
 
 ## Deployment
-Deployment happens by publishing files to `gh-pages` branch.
+Deployment happens by syncing S3 bucket content with `build` folder.
 ```
 npm run build
 npm run deploy
